@@ -9,16 +9,16 @@ var link = new Base.Link({
 })
 link.start()
 
-var client = new Client(link, {})
-var service = client.listen('req', 5000)
+var worker = new Client(link, {})
+var service = worker.listen('req', 5000)
 
 setInterval(function() {
-  client.announce('test', service.port, {}, () => {
+  worker.announce('test', service.port, {}, () => {
     console.log('announced')
   })
 }, 1000)
 
-client.on('request', (rid, type, payload, handler) => {
-  //console.log('client1', rid, type, payload)
+worker.on('request', (rid, type, payload, handler) => {
+  //console.log('worker', rid, type, payload)
   handler.reply('world')
 })
