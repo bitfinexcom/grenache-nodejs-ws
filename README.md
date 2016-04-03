@@ -2,6 +2,13 @@
 
 ### Setup
 
+#### Install 
+```
+npm install --save grenache-nodejs-ws
+```
+
+#### Other Requirements
+
 Install `Grenache Grape`: https://github.com/bitfinexcom/grenache-grape
 
 ```
