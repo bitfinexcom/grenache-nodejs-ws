@@ -2,7 +2,7 @@
 
 ### Setup
 
-Install https://github.com/bitfinexcom/grenache-grape
+Install `Grenache Grape`: https://github.com/bitfinexcom/grenache-grape
 
 ```
 // Start 2 Grapes
