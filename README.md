@@ -1,4 +1,7 @@
-# Grenache Node.JS WebSocket implementation
+# [Grenache](https://github.com/bitfinexcom/grenache) Node.JS WebSocket implementation
+
+### Details
+- [Project Homepage](https://github.com/bitfinexcom/grenache) 
 
 ### Setup
 
