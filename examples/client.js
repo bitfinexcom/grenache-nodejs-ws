@@ -11,14 +11,14 @@ link.start()
 
 var client = new Client(link, {})
 
-var reqs = 1000
+var reqs = 10000
 var reps = 0
 
 setTimeout(() => {
   var d1 = new Date()
   for (var i = 0; i < reqs; i++) {
     client.request('test', 'hello', {}, (err, data) => {
-      console.log("here", err, data)
+      //console.log("here", err, data)
       if (++reps === reqs) {
         var d2 = new Date()
         console.log(d2 - d1) 
