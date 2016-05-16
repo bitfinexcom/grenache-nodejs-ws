@@ -11,10 +11,10 @@
     "micro-services"
   ],
   "dependencies": {
-    "async": "~2.0.0-rc.3",
+    "async": "~2.0.0-rc.4",
     "debug": "~2.2.0",
     "grenache-nodejs-base": "git+https://github.com/bitfinexcom/grenache-nodejs-base.git",
-    "lodash": "~4.11.2",
+    "lodash": "~4.12.0",
     "uuid": "~2.0.1",
     "underscore.string": "~3.3.4",
     "ws": "~1.1.0"
