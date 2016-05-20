@@ -17,8 +17,8 @@ var reps = 0
 setTimeout(() => {
   var d1 = new Date()
   for (var i = 0; i < reqs; i++) {
-    client.request('test', 'hello', {}, (err, data) => {
-      //console.log("here", err, data)
+    client.request('test', 'hello', { timeout: 1000 }, (err, data) => {
+      //console.log(err, data)
       if (++reps === reqs) {
         var d2 = new Date()
         console.log(d2 - d1) 
