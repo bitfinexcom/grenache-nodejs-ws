@@ -16,6 +16,12 @@ setInterval(function() {
   worker.announce('test', service.port, {}, () => {
     console.log('announced')
   })
+
+  var v = 'hello'
+
+  worker.put({ v: v }, (err, res) => {
+    console.log('val: ' + v + ' saved to the DHT', res) 
+  })
 }, 1000)
 
 worker.on('request', (rid, type, payload, handler) => {
