@@ -16,8 +16,7 @@
     "grenache-nodejs-base": "git+https://github.com/bitfinexcom/grenache-nodejs-base.git",
     "lodash": "~4.16.4",
     "uuid": "~2.0.1",
-    "uws": "~0.10.9",
-    "ws": "~1.1.0"
+    "uws": "~0.11.0"
   },
   "engine": {
     "node": ">=4.4"
