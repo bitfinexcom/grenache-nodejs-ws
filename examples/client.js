@@ -2,14 +2,14 @@
 
 var _ = require('lodash')
 var Base = require('grenache-nodejs-base')
-var Client = require('./../lib/Client')
+var Peer = require('./../lib/Peer')
 
 var link = new Base.Link({
   grape: 'ws://127.0.0.1:30002'
 })
 link.start()
 
-var client = new Client(link, {})
+var client = new Peer(link, {})
 
 var reqs = 50000
 var reps = 0

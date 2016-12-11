@@ -2,14 +2,14 @@
 
 var _ = require('lodash')
 var Base = require('grenache-nodejs-base')
-var Client = require('./../lib/Client')
+var Peer = require('./../lib/Peer')
 
 var link = new Base.Link({
   grape: 'ws://127.0.0.1:30001'
 })
 link.start()
 
-var worker = new Client(link, {})
+var worker = new Peer(link, {})
 var service = worker.listen('req', 5000)
 
 setInterval(function() {
