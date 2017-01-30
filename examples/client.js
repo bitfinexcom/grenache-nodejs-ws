@@ -11,14 +11,14 @@ link.start()
 
 var client = new Peer(link, {})
 
-var reqs = 10
+var reqs = 5000
 var reps = 0
 
 setTimeout(() => {
   var d1 = new Date()
   for (var i = 0; i < reqs; i++) {
     client.request('test', 'hello', { timeout: 10000 }, (err, data) => {
-      console.log(err, data)
+      //console.log(err, data)
       if (++reps === reqs) {
         var d2 = new Date()
         console.log(d2 - d1) 
