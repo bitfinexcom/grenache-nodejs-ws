@@ -12,7 +12,7 @@ link.start()
 
 var client = new Peer(link, {})
 
-var reqs = 100
+var reqs = 10000
 var reps = 0
 
 
@@ -23,12 +23,10 @@ const elapsed_time = function(start, note) {
   start = process.hrtime(); // reset the timer
 }
 
-var big = fs.readFileSync('/home/dev/data/arvicco.txt')
-
 setTimeout(() => {
   let start = process.hrtime()
   for (var i = 0; i < reqs; i++) {
-    client.request('test', JSON.stringify(big), { timeout: 10000 }, (err, data) => {
+    client.request('test', 'here', { timeout: 10000 }, (err, data) => {
       //console.log(err, data)
       if (++reps === reqs) {
         var d2 = new Date()
