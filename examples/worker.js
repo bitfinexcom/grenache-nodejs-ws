@@ -24,7 +24,7 @@ setInterval(function() {
   })
 }, 1000)
 
-worker.on('request', (rid, type, payload, handler) => {
-  //console.log('worker', rid, type, payload)
+worker.on('request', (rid, key, payload, handler) => {
+  //console.log('worker', rid, key, payload)
   handler.reply('world')
 })
