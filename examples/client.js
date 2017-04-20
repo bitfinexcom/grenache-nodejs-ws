@@ -27,10 +27,16 @@ setTimeout(() => {
   let start = process.hrtime()
   for (let i = 0; i < reqs; i++) {
     client.request('test', 'here', { timeout: 10000 }, (err, data) => {
-      //console.log(err, data)
+      console.log(err, data)
       if (++reps === reqs) {
         elapsed_time(start, 'finished')
       }
     })
   }
+}, 2000)
+
+setInterval(() => {
+  client.request('test', 'here', { timeout: 10000 }, (err, data) => {
+    console.log(err, data)
+  })
 }, 2000)
