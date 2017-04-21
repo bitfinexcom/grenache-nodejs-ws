@@ -2,7 +2,7 @@
 
 const _ = require('lodash')
 const Base = require('grenache-nodejs-base')
-const Peer = require('./../lib/Peer')
+const Peer = require('./../lib/PeerRPC')
 
 const link = new Base.Link({
   grape: 'ws://127.0.0.1:30001'
@@ -10,11 +10,12 @@ const link = new Base.Link({
 link.start()
 
 const worker = new Peer(link, {})
-const service = worker.listen('req', 5000)
+const service = worker.transport('server')
+service.listen(50000)
 
 setInterval(function() {
   worker.announce('test', service.port, {}, () => {
-    console.log('announced')
+    console.log('announced', service.port)
   })
 
   const v = 'hello'
@@ -24,7 +25,6 @@ setInterval(function() {
   })
 }, 1000)
 
-worker.on('request', (rid, key, payload, handler) => {
-  //console.log('worker', rid, key, payload)
-  handler.reply('world')
+service.on('request', (rid, key, payload, handler) => {
+//  handler.reply('world')
 })
