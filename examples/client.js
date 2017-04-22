@@ -10,9 +10,10 @@ const link = new Base.Link({
 })
 link.start()
 
-const client = new Peer(link, {})
+const peer = new Peer(link, {})
+peer.init()
 
-const reqs = 10
+const reqs = 10000
 let reps = 0
 
 const elapsed_time = function(start, note) {
@@ -25,7 +26,7 @@ const elapsed_time = function(start, note) {
 setTimeout(() => {
   let start = process.hrtime()
   for (let i = 0; i < reqs; i++) {
-    client.request('test', 'here', { timeout: 10000 }, (err, data) => {
+    peer.request('test', 'here', { timeout: 10000 }, (err, data) => {
       //console.log(err, data)
       if (++reps === reqs) {
         elapsed_time(start, 'finished')
@@ -35,7 +36,7 @@ setTimeout(() => {
 }, 2000)
 
 setInterval(() => {
-  client.request('test', 'here', { timeout: 10000 }, (err, data) => {
+  peer.request('test', 'here', { timeout: 10000 }, (err, data) => {
     console.log(err, data)
   })
 }, 2000)
