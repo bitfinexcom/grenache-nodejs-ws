@@ -13,10 +13,10 @@
   "dependencies": {
     "async": "~2.1.4",
     "debug": "~2.2.0",
-    "grenache-nodejs-base": "~0.0.18",
+    "grenache-nodejs-base": "~0.0.19",
     "lodash": "~4.17.4",
     "uuid": "~3.0.1",
-    "uws": "~0.14.1"
+    "uws": "0.14.1"
   },
   "engine": {
     "node": ">=4.4"
