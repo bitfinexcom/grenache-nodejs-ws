@@ -20,9 +20,19 @@ grape --dp 20001 --ap 30001 --bn '127.0.0.1:20002'
 grape --dp 20002 --ap 30002 --bn '127.0.0.1:20001'
 ```
 
-### Run
+### Examples
+
+Checkout [Examples](https://github.com/bitfinexcom/grenache-nodejs-ws/tree/master/examples) directory
+
+##### RPC
 
 ```
 node examples/worker.js
 node examples/client.js
+```
+
+##### DHT storage
+
+```
+node examples/put_get.js
 ```
