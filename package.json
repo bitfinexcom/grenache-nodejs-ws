@@ -1,6 +1,6 @@
 {
   "name": "grenache-nodejs-ws",
-  "version": "0.0.26",
+  "version": "0.0.28",
   "private": false,
   "description": "Granache Grape",
   "author": "prdn <paolo@bitfinex.com> (https://bitfinex.com/)",
@@ -13,7 +13,7 @@
   "dependencies": {
     "async": "~2.4.0",
     "debug": "~2.2.0",
-    "grenache-nodejs-base": "~0.0.26",
+    "grenache-nodejs-base": "~0.0.28",
     "lodash": "~4.17.4",
     "uuid": "~3.0.1",
     "uws": "0.14.5"
