@@ -12,8 +12,14 @@ const peer = new Peer(link, {})
 peer.init()
 
 setTimeout(() => {
-  peer.sub('pub_test', { timeout: 10000 }, (err, data) => {
-           
+  peer.sub('pub_test', { timeout: 10000 })
+
+  peer.on('connected', () => {
+    console.log('connected')
+  })
+
+  peer.on('disconnected', () => {
+    console.log('disconnected')
   })
 
   peer.on('message', (msg) => {
