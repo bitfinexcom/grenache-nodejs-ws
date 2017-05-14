@@ -17,7 +17,7 @@ let reps = 0
 setTimeout(() => {
   const d1 = new Date()
   for (let i = 0; i < reqs; i++) {
-    peer.request('test', 'hello', { timeout: 10000 }, (err, data) => {
+    peer.request('rpc_test', 'hello', { timeout: 10000 }, (err, data) => {
      console.log(err, data)
       if (++reps === reqs) {
         const d2 = new Date()
