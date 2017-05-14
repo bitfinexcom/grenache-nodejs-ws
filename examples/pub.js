@@ -1,7 +1,7 @@
 'use strict'
 
 const Base = require('grenache-nodejs-base')
-const Peer = require('./../lib/PeerRPC')
+const Peer = require('./../lib/PeerPub')
 const _ = require('lodash')
 
 const link = new Base.Link({
@@ -16,10 +16,9 @@ const service = peer.transport('server')
 service.listen(_.random(1000) + 1024)
 
 setInterval(function() {
-  link.announce('test', service.port, {})
+  link.announce('pub_test', service.port, {})
 }, 1000)
 
-service.on('request', (rid, key, payload, handler) => {
-  //console.log('peer', rid, key, payload)
-  handler.reply('world')
-})
+setInterval(() => {
+  service.pub('world')
+}, 100)
