@@ -15,7 +15,7 @@ peer.init()
 const service = peer.transport('server')
 service.listen(_.random(1000) + 1024)
 
-setInterval(function() {
+setInterval(function () {
   link.announce('pub_test', service.port, {})
 }, 1000)
 
