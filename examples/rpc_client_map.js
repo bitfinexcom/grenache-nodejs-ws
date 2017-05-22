@@ -1,3 +1,6 @@
+// make sure you start grenache-grape:
+// grape --dp 20001 --apw 30001 --aph 40001 --bn "127.0.0.1:20002,127.0.0.1:20003"
+
 'use strict'
 
 const Base = require('grenache-nodejs-base')
@@ -12,7 +15,6 @@ const peer = new Peer(link, {})
 peer.init()
 
 const reqs = 10
-let reps = 0
 
 setTimeout(() => {
   for (let i = 0; i < reqs; i++) {

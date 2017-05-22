@@ -18,9 +18,6 @@
     "uuid": "~3.0.1",
     "uws": "0.14.5"
   },
-  "engine": {
-    "node": ">=4.4"
-  },
   "main": "index.js",
   "directories": {
     "example": "examples",
@@ -28,16 +25,12 @@
   },
   "devDependencies": {
     "chai": "~3.2.0",
-    "eslint": "^1.6.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-node": "^4.2.2",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "mocha": "~2.2.5"
+    "mocha": "~2.2.5",
+    "standard": "^10.0.2"
   },
   "scripts": {
-    "test": "make test"
+    "test": "npm run lint",
+    "lint": "standard"
   },
   "license": "MIT",
   "repository": {
@@ -47,8 +40,5 @@
   "bugs": {
     "url": "https://github.com/bitfinexcom/grenache-nodejs-ws/issues"
   },
-  "homepage": "https://github.com/bitfinexcom/grenache-nodejs-ws",
-  "optionalDependencies": {
-    "eslint": "~1.6.0"
-  }
+  "homepage": "https://github.com/bitfinexcom/grenache-nodejs-ws"
 }
