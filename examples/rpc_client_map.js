@@ -12,7 +12,6 @@ const peer = new Peer(link, {})
 peer.init()
 
 const reqs = 10
-let reps = 0
 
 setTimeout(() => {
   for (let i = 0; i < reqs; i++) {
