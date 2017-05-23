@@ -1,8 +1,7 @@
 {
   "name": "grenache-nodejs-ws",
   "version": "0.1.3",
-  "private": false,
-  "description": "Granache Grape",
+  "description": "Granache Nodejs Websocket implementation",
   "author": "prdn <paolo@bitfinex.com> (https://bitfinex.com/)",
   "keywords": [
     "grenache",
@@ -36,9 +35,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/bitfinexcom/grenache-nodejs-ws.git"
-  },
-  "bugs": {
-    "url": "https://github.com/bitfinexcom/grenache-nodejs-ws/issues"
-  },
-  "homepage": "https://github.com/bitfinexcom/grenache-nodejs-ws"
+  }
 }
