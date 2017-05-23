@@ -24,13 +24,13 @@
     "test": "test"
   },
   "devDependencies": {
-    "chai": "~3.2.0",
-    "mocha": "~2.2.5",
+    "mocha": "^3.4.1",
     "standard": "^10.0.2"
   },
   "scripts": {
-    "test": "npm run lint",
-    "lint": "standard"
+    "test": "npm run lint && npm run unit",
+    "lint": "standard",
+    "unit": "mocha -R spec"
   },
   "license": "MIT",
   "repository": {
