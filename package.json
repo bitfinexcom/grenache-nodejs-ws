@@ -24,6 +24,7 @@
     "test": "test"
   },
   "devDependencies": {
+    "async": "^2.4.1",
     "mocha": "^3.4.1",
     "standard": "^10.0.2"
   },
