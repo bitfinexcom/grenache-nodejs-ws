@@ -3,9 +3,10 @@
 
 'use strict'
 
-const Base = require('grenache-nodejs-base')
+const Grenache = require('./../')
+const Link = Grenache.Link
 
-const link = new Base.Link({
+const link = new Link({
   grape: 'ws://127.0.0.1:30001'
 })
 link.start()

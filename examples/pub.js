@@ -3,16 +3,18 @@
 
 'use strict'
 
-const Base = require('grenache-nodejs-base')
-const Peer = require('./../lib/PeerPub')
+const Grenache = require('./../')
+const Link = Grenache.Link
+const PeerPub = Grenache.PeerPub
+
 const _ = require('lodash')
 
-const link = new Base.Link({
+const link = new Link({
   grape: 'ws://127.0.0.1:30001'
 })
 link.start()
 
-const peer = new Peer(link, {})
+const peer = new PeerPub(link, {})
 peer.init()
 
 const service = peer.transport('server')
