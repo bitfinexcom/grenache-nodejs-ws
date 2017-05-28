@@ -12,7 +12,7 @@
   "dependencies": {
     "async": "~2.4.0",
     "debug": "~2.2.0",
-    "grenache-nodejs-base": "~0.1.3",
+    "grenache-nodejs-base": "^0.2.0",
     "lodash": "~4.17.4",
     "uuid": "~3.0.1",
     "uws": "0.14.5"
