@@ -1,11 +1,12 @@
-// make sure you start grenache-grape:
-// grape --dp 20001 --apw 30001 --aph 40001 --bn "127.0.0.1:20002,127.0.0.1:20003"
+// make sure you start 2 grapes
+// grape --dp 20001 --apw 30001 --aph 30002 --bn '127.0.0.1:20002'
+// grape --dp 20002 --apw 40001 --aph 40002 --bn '127.0.0.1:20001'
 
 'use strict'
 
 const Grenache = require('./../')
 const Link = Grenache.Link
-const Peer = Grenache.PeerRPCServer
+const PeerRPCServer = Grenache.PeerRPCServer
 
 const _ = require('lodash')
 
@@ -14,7 +15,7 @@ const link = new Link({
 })
 link.start()
 
-const peer = new Peer(link, {})
+const peer = new PeerRPCServer(link, {})
 peer.init()
 
 const service = peer.transport('server')
