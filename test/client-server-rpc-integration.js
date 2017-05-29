@@ -7,8 +7,8 @@ const spawn = require('child_process').spawn
 const path = require('path')
 
 const parallel = require('async/parallel')
-const Base = require('grenache-nodejs-base')
-const Peer = require('./../lib/PeerRPCClient')
+const Peer = require('./../').PeerRPCClient
+const Link = require('./../').Link
 
 let rpc, grape
 describe('RPC integration', () => {
@@ -36,7 +36,7 @@ describe('RPC integration', () => {
   })
 
   it('messages with the rpc worker', (done) => {
-    const link = new Base.Link({
+    const link = new Link({
       grape: 'ws://127.0.0.1:30001'
     })
     link.start()
