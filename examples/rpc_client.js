@@ -3,10 +3,11 @@
 
 'use strict'
 
-const Base = require('grenache-nodejs-base')
-const Peer = require('./../lib/PeerRPCClient')
+const Grenache = require('./../')
+const Link = Grenache.Link
+const Peer = Grenache.PeerRPCClient
 
-const link = new Base.Link({
+const link = new Link({
   grape: 'ws://127.0.0.1:30001'
 })
 link.start()
