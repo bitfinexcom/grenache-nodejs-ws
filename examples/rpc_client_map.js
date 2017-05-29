@@ -5,14 +5,14 @@
 
 const Grenache = require('./../')
 const Link = Grenache.Link
-const Peer = Grenache.PeerRPCClient
+const PeerRPCClient = Grenache.PeerRPCClient
 
 const link = new Link({
   grape: 'ws://127.0.0.1:30001'
 })
 link.start()
 
-const peer = new Peer(link, {})
+const peer = new PeerRPCClient(link, {})
 peer.init()
 
 const reqs = 10

@@ -5,14 +5,14 @@
 
 const Grenache = require('./../')
 const Link = Grenache.Link
-const Peer = Grenache.PeerSub
+const PeerSub = Grenache.PeerSub
 
 const link = new Link({
   grape: 'ws://127.0.0.1:30001'
 })
 link.start()
 
-const peer = new Peer(link, {})
+const peer = new PeerSub(link, {})
 peer.init()
 
 setTimeout(() => {

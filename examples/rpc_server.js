@@ -5,7 +5,7 @@
 
 const Grenache = require('./../')
 const Link = Grenache.Link
-const Peer = Grenache.PeerRPCServer
+const PeerRPCServer = Grenache.PeerRPCServer
 
 const _ = require('lodash')
 
@@ -14,7 +14,7 @@ const link = new Link({
 })
 link.start()
 
-const peer = new Peer(link, {})
+const peer = new PeerRPCServer(link, {})
 peer.init()
 
 const service = peer.transport('server')
