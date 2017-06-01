@@ -19,7 +19,7 @@ peer.init()
 const reqs = 100000
 let reps = 0
 
-setTimeout(() => {
+link.on('connect', () => {
   const d1 = new Date()
   for (let i = 0; i < reqs; i++) {
     peer.request('rpc_test', 'hello', { timeout: 10000 }, (err, data) => {
@@ -34,4 +34,4 @@ setTimeout(() => {
       }
     })
   }
-}, 2000)
+})

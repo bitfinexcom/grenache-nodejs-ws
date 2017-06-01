@@ -85,7 +85,7 @@ link.start()
 const peer = new PeerRPCClient(link, {})
 peer.init()
 
-setTimeout(() => {
+link.on('connect', () => {
   peer.request('rpc_test', 'hello', { timeout: 10000 }, (err, data) => {
     if (err) {
       console.error(err)
@@ -93,7 +93,7 @@ setTimeout(() => {
     }
     console.log(data) // world
   })
-}, 2000)
+})
 ```
 
 [Code Server](https://github.com/bitfinexcom/grenache-nodejs-ws/tree/master/examples/rpc_server.js)
@@ -247,7 +247,7 @@ link.start()
 const peer = new PeerRPCClient(link, {})
 peer.init()
 
-setTimeout(() => {
+link.on('connect', () => {
   peer.request('rpc_test', 'hello', { timeout: 10000 }, (err, data) => {
     if (err) {
       console.error(err)
@@ -255,7 +255,7 @@ setTimeout(() => {
     }
     console.log(data) // world
   })
-}, 2000)
+})
 ```
 
 [Server](https://github.com/bitfinexcom/grenache-nodejs-ws/tree/master/examples/rpc_server.js)
