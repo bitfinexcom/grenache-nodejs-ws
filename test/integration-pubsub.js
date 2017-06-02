@@ -8,30 +8,40 @@ const path = require('path')
 
 const PeerSub = require('./../').PeerSub
 const Link = require('./../').Link
-const { bootTwoGrapes } = require('./helper')
+const { bootTwoGrapes, killGrapes } = require('./helper')
 
 let pub, grapes
 describe('Pub/Sub integration', () => {
   before(function (done) {
-    this.timeout(8000)
+    this.timeout(10000)
 
     grapes = bootTwoGrapes()
     grapes[0].once('announce', (msg) => {
       done()
     })
-    grapes[1].on('ready', () => {
+
+    let bootedGrapes = 0
+    grapes[0].once('ready', () => {
+      bootedGrapes++
+      if (bootedGrapes === 2) spawnServer()
+    })
+
+    grapes[1].once('ready', () => {
+      bootedGrapes++
+      if (bootedGrapes === 2) spawnServer()
+    })
+
+    function spawnServer () {
       const f = path.join(__dirname, '..', 'examples', 'pub.js')
       pub = spawn('node', [ f ])
-    })
+    }
   })
 
   after(function (done) {
     this.timeout(5000)
     pub.on('close', () => {
-      done()
+      killGrapes(grapes, done)
     })
-    grapes[0].stop(() => {})
-    grapes[1].stop(() => {})
     pub.kill()
   })
 

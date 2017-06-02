@@ -23,3 +23,14 @@ function bootTwoGrapes () {
 
   return [ grape1, grape2 ]
 }
+
+exports.killGrapes = killGrapes
+function killGrapes (grapes, done) {
+  grapes[0].stop((err) => {
+    if (err) throw err
+    grapes[1].stop((err) => {
+      if (err) throw err
+      done()
+    })
+  })
+}
