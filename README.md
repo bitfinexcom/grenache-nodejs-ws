@@ -264,7 +264,7 @@ link.on('connect', () => {
 
 ### Class: PeerRPCClient
 
-#### new PeerRPCServer(link, [options])
+#### new PeerRPCClient(link, [options])
 
  - `link` &lt;Object&gt; Instance of a [Link Class](#new-linkoptions)
  - `options` &lt;Object&gt;
