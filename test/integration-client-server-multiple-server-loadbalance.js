@@ -7,15 +7,16 @@ const spawn = require('child_process').spawn
 const path = require('path')
 
 const parallel = require('async/parallel')
-const Peer = require('./../').PeerRPCClient
+const _ = require('lodash')
+
+const PeerRPCClient = require('./../').PeerRPCClient
 const Link = require('./../').Link
 const { bootTwoGrapes, killGrapes } = require('./helper')
 
-let rpc, grapes
-describe('RPC integration', () => {
+let rpc1, rpc2, grapes
+describe('RPC socket pools / loadbalancing', () => {
   before(function (done) {
     this.timeout(8000)
-
     bootTwoGrapes((err, g) => {
       if (err) throw err
 
@@ -25,28 +26,33 @@ describe('RPC integration', () => {
       })
 
       const f = path.join(__dirname, 'fixtures', 'mock-rpc-server.js')
-      rpc = spawn('node', [ f, 'world' ])
+      rpc1 = spawn('node', [ f ])
+      rpc2 = spawn('node', [ f ])
     })
   })
 
   after(function (done) {
     this.timeout(5000)
-    rpc.on('close', () => {
-      killGrapes(grapes, done)
+    rpc1.on('close', () => {
+      rpc2.on('close', () => {
+        killGrapes(grapes, done)
+      })
+      rpc2.kill()
     })
-    rpc.kill()
+
+    rpc1.kill()
   })
 
-  it('messages with the rpc worker', (done) => {
+  it('maps over multiple servers', (done) => {
     const link = new Link({
       grape: 'ws://127.0.0.1:30001'
     })
     link.start()
 
-    const peer = new Peer(link, {})
+    const peer = new PeerRPCClient(link, {})
     peer.init()
 
-    const reqs = 5
+    const reqs = 10
     const tasks = []
 
     function createTask () {
@@ -64,8 +70,18 @@ describe('RPC integration', () => {
     link.on('connect', () => {
       parallel(tasks, (err, data) => {
         if (err) throw err
-        assert.equal(data[0][0], 'world')
-        assert.equal(data.length, 5)
+
+        assert.equal(data.length, 10)
+
+        const uuidList = data.reduce((acc, el) => {
+          acc.push(el[0], el[1])
+          return acc
+        }, [])
+
+        const uuids = _.uniq(uuidList)
+
+        assert.equal(uuids.length, 2)
+
         done()
       })
     })
