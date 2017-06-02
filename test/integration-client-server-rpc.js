@@ -5,41 +5,26 @@
 const assert = require('assert')
 const spawn = require('child_process').spawn
 const path = require('path')
-const Grape = require('grenache-grape').Grape
 
 const parallel = require('async/parallel')
 const Peer = require('./../').PeerRPCClient
 const Link = require('./../').Link
+const { bootTwoGrapes } = require('./helper')
 
-let rpc, grape1, grape2
+let rpc, grapes
 describe('RPC integration', () => {
   before(function (done) {
-    this.timeout(6000)
+    this.timeout(8000)
 
-    grape1 = new Grape({
-      dht_port: 20002,
-      dht_bootstrap: [ '127.0.0.1:20001', '127.0.0.1:20003' ],
-      api_port: 40001,
-      api_port_http: 40002
-    })
-
-    grape1.start(() => {})
-
-    grape2 = new Grape({
-      dht_port: 20001,
-      dht_bootstrap: [ '127.0.0.1:20002', '127.0.0.1:20003' ],
-      api_port: 30001,
-      api_port_http: 30002
-    })
-
-    grape2.start(() => {})
-
-    grape1.once('announce', () => {
+    grapes = bootTwoGrapes()
+    grapes[0].once('announce', (msg) => {
       done()
     })
 
-    const f = path.join(__dirname, '..', 'examples', 'rpc_server.js')
-    rpc = spawn('node', [ f ])
+    grapes[1].on('ready', () => {
+      const f = path.join(__dirname, '..', 'examples', 'rpc_server.js')
+      rpc = spawn('node', [ f ])
+    })
   })
 
   after(function (done) {
@@ -47,8 +32,8 @@ describe('RPC integration', () => {
     rpc.on('close', () => {
       done()
     })
-    grape1.stop(() => {})
-    grape2.stop(() => {})
+    grapes[0].stop(() => {})
+    grapes[1].stop(() => {})
     rpc.kill()
   })
 
