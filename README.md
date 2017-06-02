@@ -107,7 +107,7 @@ link.on('connect', () => {
 
  - `options` &lt;Object&gt; Options for the link
     - `grape` &lt;String&gt; Address of the Grenache Grape instance. Communication is done via WebSocket or HTTP.
-    - `linkRequestTimeout` &lt;Number&gt; Default timeout for requests to Grape,
+    - `requestTimeout` &lt;Number&gt; Default timeout for requests to Grape,
     - `pingTimeout` &lt;Number&gt; Ping connection timeout to Grape (triggers reconnect attempt),
     - `lruMaxSizeLookup` &lt;Number&gt; Maximum size of the cache,
         checked by applying the length function to all values
