@@ -268,9 +268,15 @@ link.on('connect', () => {
 
  - `link` &lt;Object&gt; Instance of a [Link Class](#new-linkoptions)
  - `options` &lt;Object&gt;
+    - `maxActiveKeyDests` &lt;Number&gt;
+    - `maxActiveDestTransports` &lt;Number&gt;
 
 Creates a new instance of a `PeerRPCClient`, which connects to the DHT
 using the passed `link`.
+
+A PeerRPCClient can communicate with multiple Servers and map work items over them.
+With `maxActiveKeyDests` you can limit the maximum amount of destinations.
+Additionally, you can limit the amount of transports with `maxActiveDestTransports`.
 
 #### peer.init()
 
