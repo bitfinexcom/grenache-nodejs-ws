@@ -17,13 +17,14 @@ let rpc1, rpc2, grapes
 describe('RPC socket pools / loadbalancing', () => {
   before(function (done) {
     this.timeout(8000)
+    bootTwoGrapes((err, g) => {
+      if (err) throw err
 
-    grapes = bootTwoGrapes()
-    grapes[0].once('announce', (msg) => {
-      done()
-    })
+      grapes = g
+      grapes[0].once('announce', (msg) => {
+        done()
+      })
 
-    grapes[1].on('ready', () => {
       const f = path.join(__dirname, 'fixtures', 'mock-rpc-server.js')
       rpc1 = spawn('node', [ f ])
       rpc2 = spawn('node', [ f ])

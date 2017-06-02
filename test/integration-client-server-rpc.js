@@ -16,12 +16,14 @@ describe('RPC integration', () => {
   before(function (done) {
     this.timeout(8000)
 
-    grapes = bootTwoGrapes()
-    grapes[0].once('announce', (msg) => {
-      done()
-    })
+    bootTwoGrapes((err, g) => {
+      if (err) throw err
 
-    grapes[1].on('ready', () => {
+      grapes = g
+      grapes[0].once('announce', (msg) => {
+        done()
+      })
+
       const f = path.join(__dirname, 'fixtures', 'mock-rpc-server.js')
       rpc = spawn('node', [ f, 'world' ])
     })

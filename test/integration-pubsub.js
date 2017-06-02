@@ -15,26 +15,17 @@ describe('Pub/Sub integration', () => {
   before(function (done) {
     this.timeout(10000)
 
-    grapes = bootTwoGrapes()
-    grapes[0].once('announce', (msg) => {
-      done()
-    })
+    bootTwoGrapes((err, g) => {
+      if (err) throw err
 
-    let bootedGrapes = 0
-    grapes[0].once('ready', () => {
-      bootedGrapes++
-      if (bootedGrapes === 2) spawnServer()
-    })
+      grapes = g
+      grapes[0].once('announce', (msg) => {
+        done()
+      })
 
-    grapes[1].once('ready', () => {
-      bootedGrapes++
-      if (bootedGrapes === 2) spawnServer()
-    })
-
-    function spawnServer () {
       const f = path.join(__dirname, '..', 'examples', 'pub.js')
       pub = spawn('node', [ f ])
-    }
+    })
   })
 
   after(function (done) {
