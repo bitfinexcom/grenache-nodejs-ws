@@ -45,7 +45,7 @@ describe('RPC socket pools / loadbalancing', () => {
 
   it('maps over multiple servers', (done) => {
     const link = new Link({
-      grape: 'ws://127.0.0.1:30001'
+      grape: 'http://127.0.0.1:30001'
     })
     link.start()
 
@@ -67,23 +67,21 @@ describe('RPC socket pools / loadbalancing', () => {
       tasks.push(createTask())
     }
 
-    link.on('connect', () => {
-      parallel(tasks, (err, data) => {
-        if (err) throw err
+    parallel(tasks, (err, data) => {
+      if (err) throw err
 
-        assert.equal(data.length, 10)
+      assert.equal(data.length, 10)
 
-        const uuidList = data.reduce((acc, el) => {
-          acc.push(el[0], el[1])
-          return acc
-        }, [])
+      const uuidList = data.reduce((acc, el) => {
+        acc.push(el[0], el[1])
+        return acc
+      }, [])
 
-        const uuids = _.uniq(uuidList)
+      const uuids = _.uniq(uuidList)
 
-        assert.equal(uuids.length, 2)
+      assert.equal(uuids.length, 2)
 
-        done()
-      })
+      done()
     })
   }).timeout(15000)
 })
