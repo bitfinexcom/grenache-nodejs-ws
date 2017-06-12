@@ -16,18 +16,16 @@ link.start()
 const peer = new PeerSub(link, {})
 peer.init()
 
-setTimeout(() => {
-  peer.sub('pub_test', { timeout: 10000 })
+peer.sub('pub_test', { timeout: 10000 })
 
-  peer.on('connected', () => {
-    console.log('connected')
-  })
+peer.on('connected', () => {
+  console.log('connected')
+})
 
-  peer.on('disconnected', () => {
-    console.log('disconnected')
-  })
+peer.on('disconnected', () => {
+  console.log('disconnected')
+})
 
-  peer.on('message', (msg) => {
-    console.log(msg)
-  })
-}, 2000)
+peer.on('message', (msg) => {
+  console.log(msg)
+})

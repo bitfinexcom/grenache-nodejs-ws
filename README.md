@@ -87,15 +87,14 @@ link.start()
 const peer = new PeerRPCClient(link, {})
 peer.init()
 
-link.on('connect', () => {
-  peer.request('rpc_test', 'hello', { timeout: 10000 }, (err, data) => {
-    if (err) {
-      console.error(err)
-      process.exit(-1)
-    }
-    console.log(data) // world
-  })
+peer.request('rpc_test', 'hello', { timeout: 10000 }, (err, data) => {
+  if (err) {
+    console.error(err)
+    process.exit(-1)
+  }
+  console.log(data) // world
 })
+
 ```
 
 [Code Server](https://github.com/bitfinexcom/grenache-nodejs-ws/tree/master/examples/rpc_server.js)
@@ -115,14 +114,6 @@ link.on('connect', () => {
         checked by applying the length function to all values
         in the cache
     - `lruMaxAgeLookup` &lt;Number&gt; Maximum cache age in ms.
-
-#### Event: 'connect'
-
-Emitted when the link connected to Grape.
-
-#### Event 'disconnect'
-
-Emitted when the link disconnected from Grape.
 
 #### link.start()
 
@@ -251,15 +242,14 @@ link.start()
 const peer = new PeerRPCClient(link, {})
 peer.init()
 
-link.on('connect', () => {
-  peer.request('rpc_test', 'hello', { timeout: 10000 }, (err, data) => {
-    if (err) {
-      console.error(err)
-      process.exit(-1)
-    }
-    console.log(data) // world
-  })
+peer.request('rpc_test', 'hello', { timeout: 10000 }, (err, data) => {
+  if (err) {
+    console.error(err)
+    process.exit(-1)
+  }
+  console.log(data) // world
 })
+
 ```
 
 [Server](https://github.com/bitfinexcom/grenache-nodejs-ws/tree/master/examples/rpc_server.js)
@@ -354,14 +344,6 @@ using the passed `link`.
 
 Registers as a receiver for messages.
 [Example](https://github.com/bitfinexcom/grenache-nodejs-ws/tree/master/examples/sub.js).
-
-#### Event: 'connected'
-
-Emitted when the client is connected to the Pub Server.
-
-#### Event: 'disconnected'
-
-Emitted when the client disconnects.
 
 #### Event: 'message'
 

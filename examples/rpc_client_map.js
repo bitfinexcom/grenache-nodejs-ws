@@ -18,10 +18,8 @@ peer.init()
 
 const reqs = 10
 
-link.on('connect', () => {
-  for (let i = 0; i < reqs; i++) {
-    peer.map('rpc_test', 'hello', { timeout: 10000 }, (err, data) => {
-      console.log(err, data)
-    })
-  }
-})
+for (let i = 0; i < reqs; i++) {
+  peer.map('rpc_test', 'hello', { timeout: 10000 }, (err, data) => {
+    console.log(err, data)
+  })
+}
