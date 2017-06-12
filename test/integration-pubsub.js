@@ -38,20 +38,18 @@ describe('Pub/Sub integration', () => {
 
   it('messages subscribers', (done) => {
     const link = new Link({
-      grape: 'ws://127.0.0.1:30001'
+      grape: 'http://127.0.0.1:30001'
     })
     link.start()
 
     const peer = new PeerSub(link, {})
     peer.init()
 
-    link.on('connect', () => {
-      peer.sub('pub_test', { timeout: 10000 })
+    peer.sub('pub_test', { timeout: 10000 })
 
-      peer.on('message', (msg) => {
-        assert.equal(msg, 'world')
-        done()
-      })
+    peer.on('message', (msg) => {
+      assert.equal(msg, 'world')
+      done()
     })
   }).timeout(15000)
 })

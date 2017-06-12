@@ -39,7 +39,7 @@ describe('RPC integration', () => {
 
   it('messages with the rpc worker', (done) => {
     const link = new Link({
-      grape: 'ws://127.0.0.1:30001'
+      grape: 'http://127.0.0.1:30001'
     })
     link.start()
 
@@ -61,13 +61,11 @@ describe('RPC integration', () => {
       tasks.push(createTask())
     }
 
-    link.on('connect', () => {
-      parallel(tasks, (err, data) => {
-        if (err) throw err
-        assert.equal(data[0][0], 'world')
-        assert.equal(data.length, 5)
-        done()
-      })
+    parallel(tasks, (err, data) => {
+      if (err) throw err
+      assert.equal(data[0][0], 'world')
+      assert.equal(data.length, 5)
+      done()
     })
   }).timeout(15000)
 })
