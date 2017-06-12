@@ -1,6 +1,6 @@
 // make sure you start 2 grapes
-// grape --dp 20001 --apw 30001 --aph 30002 --bn '127.0.0.1:20002'
-// grape --dp 20002 --apw 40001 --aph 40002 --bn '127.0.0.1:20001'
+// grape --dp 20001 --aph 30001 --bn '127.0.0.1:20002'
+// grape --dp 20002 --aph 40001 --bn '127.0.0.1:20001'
 
 'use strict'
 
@@ -11,7 +11,7 @@ const PeerPub = Grenache.PeerPub
 const _ = require('lodash')
 
 const link = new Link({
-  grape: 'ws://127.0.0.1:30001'
+  grape: 'http://127.0.0.1:30001'
 })
 link.start()
 
