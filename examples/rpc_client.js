@@ -5,7 +5,7 @@
 'use strict'
 
 const Grenache = require('./../')
-const Link = Grenache.Link
+const Link = require('grenache-nodejs-link')
 const Peer = Grenache.PeerRPCClient
 
 const link = new Link({

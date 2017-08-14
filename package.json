@@ -1,6 +1,6 @@
 {
   "name": "grenache-nodejs-ws",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Granache Nodejs Websocket implementation",
   "author": "prdn <paolo@bitfinex.com> (https://bitfinex.com/)",
   "keywords": [
@@ -11,8 +11,10 @@
   ],
   "dependencies": {
     "async": "~2.5.0",
+    "cbq": "0.0.1",
     "debug": "~2.2.0",
-    "grenache-nodejs-base": "^0.4.0",
+    "grenache-nodejs-base": "^0.5.0",
+    "grenache-nodejs-link": "^0.5.0",
     "lodash": "~4.17.4",
     "uuid": "~3.0.1",
     "uws": "^8.14.0"
