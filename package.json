@@ -25,7 +25,6 @@
     "test": "test"
   },
   "devDependencies": {
-    "grenache-grape": "^0.3.0",
     "mocha": "^3.4.1",
     "standard": "^10.0.2"
   },

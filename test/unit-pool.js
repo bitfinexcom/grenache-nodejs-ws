@@ -5,7 +5,7 @@
 const assert = require('assert')
 
 const PeerRPCClient = require('./../').PeerRPCClient
-const Link = require('./../').Link
+const Link = require('grenache-nodejs-link')
 
 describe('unit RPC socket pools / loadbalancing', () => {
   it('has a pool of connections to the same dest', () => {
