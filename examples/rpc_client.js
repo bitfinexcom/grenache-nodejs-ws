@@ -9,7 +9,8 @@ const Link = require('grenache-nodejs-link')
 const Peer = Grenache.PeerRPCClient
 
 const link = new Link({
-  grape: 'http://127.0.0.1:30001'
+  grape: 'http://10.132.0.2:30002'
+  //grape: 'http://127.0.0.1:30001'
 })
 link.start()
 

@@ -11,7 +11,8 @@ const PeerRPCServer = Grenache.PeerRPCServer
 const _ = require('lodash')
 
 const link = new Link({
-  grape: 'http://127.0.0.1:30001'
+  grape: 'http://10.132.0.2:30002'
+//  grape: 'http://127.0.0.1:30001'
 })
 link.start()
 
