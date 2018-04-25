@@ -14,10 +14,10 @@
     "cbq": "0.0.1",
     "debug": "^2.2.0",
     "grenache-nodejs-base": "^0.7.1",
-    "grenache-nodejs-link": "^0.7.6",
+    "grenache-nodejs-link": "^0.7.7",
     "lodash": "^4.17.4",
     "uuid": "^3.0.1",
-    "uws": "^9.14.0"
+    "uws": "^9.148.0"
   },
   "main": "index.js",
   "devDependencies": {
