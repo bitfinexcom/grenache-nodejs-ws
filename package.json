@@ -17,7 +17,7 @@
     "grenache-nodejs-link": "^0.7.7",
     "lodash": "^4.17.4",
     "uuid": "^3.0.1",
-    "uws": "^9.148.0"
+    "uws": "^10.148.0"
   },
   "main": "index.js",
   "devDependencies": {
