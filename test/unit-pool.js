@@ -25,6 +25,8 @@ describe('unit RPC socket pools / loadbalancing', () => {
 
     const oneDest = peer.tpool.list('127.0.0.1:1337')
     assert.equal(oneDest.length, 3)
+    link.stop()
+    peer.stop()
   })
 
   it('has a configurable pool of connections to the same dest', () => {
@@ -43,5 +45,7 @@ describe('unit RPC socket pools / loadbalancing', () => {
 
     const oneDest = peer.tpool.list('127.0.0.1:1337')
     assert.equal(oneDest.length, 2)
+    link.stop()
+    peer.stop()
   })
 })
