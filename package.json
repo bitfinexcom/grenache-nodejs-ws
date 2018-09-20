@@ -10,9 +10,7 @@
     "micro-services"
   ],
   "dependencies": {
-    "async": "^2.6.0",
     "cbq": "0.0.1",
-    "debug": "^2.2.0",
     "grenache-nodejs-base": "^0.7.2",
     "grenache-nodejs-link": "^0.7.9",
     "lodash": "^4.17.10",
@@ -22,7 +20,7 @@
   "main": "index.js",
   "devDependencies": {
     "mocha": "^5.2.0",
-    "standard": "^10.0.2"
+    "standard": "^12.0.1"
   },
   "scripts": {
     "test": "npm run lint && npm run unit",
