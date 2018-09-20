@@ -24,7 +24,7 @@ describe('unit RPC socket pools / loadbalancing', () => {
     peer.transport('127.0.0.1:1337')
 
     const oneDest = peer.tpool.list('127.0.0.1:1337')
-    assert.equal(oneDest.length, 3)
+    assert.strictEqual(oneDest.length, 3)
     link.stop()
     peer.stop()
   })
@@ -44,7 +44,7 @@ describe('unit RPC socket pools / loadbalancing', () => {
     peer.transport('127.0.0.1:1337')
 
     const oneDest = peer.tpool.list('127.0.0.1:1337')
-    assert.equal(oneDest.length, 2)
+    assert.strictEqual(oneDest.length, 2)
     link.stop()
     peer.stop()
   })
