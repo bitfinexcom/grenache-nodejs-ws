@@ -5,7 +5,7 @@
 'use strict'
 
 const Grenache = require('./../')
-const Link = Grenache.Link
+const Link = require('grenache-nodejs-link')
 const PeerSub = Grenache.PeerSub
 
 const link = new Link({
