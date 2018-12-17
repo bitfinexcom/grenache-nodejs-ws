@@ -1,7 +1,7 @@
 {
   "name": "grenache-nodejs-ws",
   "version": "0.7.9",
-  "description": "Granache Nodejs Websocket implementation",
+  "description": "Grenache Nodejs Websocket implementation",
   "author": "prdn <paolo@bitfinex.com> (https://bitfinex.com/)",
   "keywords": [
     "grenache",
