@@ -11,20 +11,23 @@
   ],
   "dependencies": {
     "cbq": "0.0.1",
-    "grenache-nodejs-base": "^0.7.4",
-    "grenache-nodejs-link": "^0.7.12",
-    "lodash": "^4.17.21",
-    "uuid": "^3.0.1",
-    "ws": "^7.5.5"
+    "grenache-nodejs-base": "1.0.0",
+    "grenache-nodejs-link": "1.0.2",
+    "uuid": "11.1.0",
+    "ws": "7.5.10"
   },
   "main": "index.js",
   "devDependencies": {
-    "mocha": "^5.2.0",
-    "standard": "^12.0.1"
+    "mocha": "11.5.0",
+    "standard": "17.1.2"
+  },
+  "engines": {
+    "node": ">=16.0"
   },
   "scripts": {
     "test": "npm run lint && npm run unit",
     "lint": "standard",
+    "lint:fix": "standard --fix",
     "unit": "mocha"
   },
   "license": "Apache-2.0",
