@@ -8,8 +8,6 @@ const Grenache = require('./../')
 const Link = require('grenache-nodejs-link')
 const PeerRPCServer = Grenache.PeerRPCServer
 
-const _ = require('lodash')
-
 const link = new Link({
   grape: 'http://127.0.0.1:30001'
 })
@@ -19,7 +17,7 @@ const peer = new PeerRPCServer(link, {})
 peer.init()
 
 const service = peer.transport('server')
-service.listen(_.random(1000) + 1024)
+service.listen(Math.floor(Math.random() * 1001) + 1024)
 
 setInterval(function () {
   link.announce('rpc_test', service.port, {})
